@@ -1,12 +1,19 @@
+// eslint-disable-next-line no-unused-vars
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {
     persistStore,
     persistReducer,
+    // eslint-disable-next-line no-unused-vars
     FLUSH,
+    // eslint-disable-next-line no-unused-vars
     REHYDRATE,
+    // eslint-disable-next-line no-unused-vars
     PAUSE,
+    // eslint-disable-next-line no-unused-vars
     PERSIST,
+    // eslint-disable-next-line no-unused-vars
     PURGE,
+    // eslint-disable-next-line no-unused-vars
     REGISTER,
   } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
