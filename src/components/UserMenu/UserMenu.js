@@ -1,25 +1,26 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import styles from './UserMenu.module.css'
-import {authSelectors, authOperations} from '../../redux/auth'
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations, authSelectors } from '../../redux/auth';
 
-const UserMenu = ({name, onLogout}) => {
-    return (
-    <div className={styles.menu}>
-        <span className={styles.title}> Welcome, {name}</span>
-        <button 
-        onClick={onLogout}
-        className={styles.btn}
-        >Log out</button>
+import styles from './UserMenu.module.css';
+
+export default function UserMenu() {
+  const dispatch = useDispatch();
+  const name = useSelector(authSelectors.getUserName);
+  const email = useSelector(authSelectors.getUserEmail);
+
+  return (
+    <div className={styles.nav}>
+      <div className={styles.menu}>
+        <p className={styles.text}>Current user: {name}</p>
+        <p className={styles.text}>{email}</p>
+      </div>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => dispatch(authOperations.logOut())}
+      >
+        Log Out
+      </button>
     </div>
-    )
+  );
 }
-
-const mapStateToProps = state => ({
-    name: authSelectors.getUserName(state)
-})
-const mapDispatchToProps ={
-    onLogout: authOperations.logout,
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(UserMenu)

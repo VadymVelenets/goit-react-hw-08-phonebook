@@ -1,6 +1,15 @@
-const isAuthenticated = state => state.auth.token
-
+const getToken = state => state.auth.token
 const getUserName = state => state.auth.user.name
+const isFetchingCurrentUser = state => state.auth.isFetchingCurrentUser;
+const getUserEmail = state => state.auth.user.email;
+const getIsLoggedIn = state => state.auth.isLoggedIn;
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {isAuthenticated, getUserName }
+const authSelectors = {
+    getUserName,
+    getUserEmail,
+    getToken,
+    isFetchingCurrentUser,
+    getIsLoggedIn,
+  };
+  
+export default authSelectors;
