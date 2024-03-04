@@ -16,4 +16,5 @@ const getContactById = createSelector(
     [(state,contactId)=> contactId, getContacts],
     (contactId,contacts) => contacts.find(item => item.id === contactId))
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { getFilter,getLoading, getVisibleContacts, getContactById}
